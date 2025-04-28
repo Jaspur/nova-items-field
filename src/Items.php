@@ -20,7 +20,7 @@ class Items extends Field
     public $listFirst = false;
     public $detailItemComponent = 'detail-nova-items-field-item';
 
-    public function resolve($resource,  ?string $attribute = null)
+    public function resolve($resource,  ?string $attribute = null) : void
     {
         parent::resolve($resource, $attribute);
 
