@@ -1,12 +1,20 @@
 <template>
     <div>
-        <span v-if="field.value">{{ field.value.length }}</span>
-        <span v-else>0</span>
+        <span>{{ itemCount }}</span>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['resourceName', 'field'],
+    props: {
+        resourceName: String,
+        field: Object,
+    },
+
+    computed: {
+        itemCount() {
+            return Array.isArray(this.field.value) ? this.field.value.length : 0;
+        }
+    }
 }
 </script>
