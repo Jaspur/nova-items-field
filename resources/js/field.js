@@ -1,6 +1,7 @@
 Nova.booting((Vue, router, store) => {
-    Vue.component('index-nova-items-field', require('./components/IndexField'))
-    Vue.component('detail-nova-items-field', require('./components/DetailField'))
-    Vue.component('form-nova-items-field', require('./components/FormField'))
-    Vue.component('detail-nova-items-field-item', require('./components/DetailFieldItem'))
+    Vue.component('index-nova-items-field', require('./components/IndexField').default)
+Vue.component('detail-nova-items-field', require('./components/DetailField').default)
+Vue.component('form-nova-items-field', require('./components/FormField').default)
+Vue.component('detail-nova-items-field-item', require('./components/DetailFieldItem').default)
+
 })
