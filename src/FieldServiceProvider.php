@@ -6,26 +6,22 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\ServiceProvider;
 
-class FieldServiceProvider extends ServiceProvider
+final class FieldServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
-        Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-items-field', __DIR__.'/../dist/js/field.js');
+        // Bind the compiled JS for Nova
+        Nova::serving(function (ServingNova $event): void {
+            Nova::script('nova-items-field', __DIR__ . '/../dist/field.js');
         });
+
+        // Optional asset publishing (e.g., for public use)
+        $this->publishes([
+            __DIR__ . '/../dist' => public_path('vendor/nova-items-field'),
+        ], 'nova-items-field-assets');
     }
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
         //
     }
